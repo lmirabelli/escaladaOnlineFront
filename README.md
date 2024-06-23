@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+# APP.JS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descripción
 
-## Available Scripts
+Esta aplicación React ofrece una interfaz fácil de usar para administrar tiendas, incluyendo:
 
-In the project directory, you can run:
+Visualizar una lista de tiendas (con filtrado por categoría opcional)
+Ver información detallada sobre tiendas individuales
+Agregar nuevas tiendas al sistema
+Editar tiendas existentes
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Características:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+### Ruteo:
+ Utiliza React Router DOM para una navegación fluida entre diferentes secciones de la aplicación utilizando rutas URL.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Componentes:
+ Aprovecha componentes React reutilizables para una organización de código eficiente y un fácil mantenimiento.
 
-### `npm run build`
+### Navbar:
+ Una barra de navegación que probablemente contenga enlaces a varias secciones (por ejemplo, lista de tiendas, formulario para agregar tiendas).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Cardbox:
+ Responsable de mostrar una lista de tarjetas de tiendas, potencialmente con filtrado por categoría.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### DetailShop:
+ Se encarga de mostrar información detallada sobre una tienda específica.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### AddShop:
+ Proporciona un formulario para agregar nuevas tiendas al sistema.
 
-### `npm run eject`
+### EditShop:
+ Permite editar los detalles de las tiendas existentes.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# SERVICES/DATABASE.JS
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Descripción
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+El hook useDatabaseList de React facilita la obtención de datos de una base de datos (o API) y la gestión de los estados de carga y error dentro de sus componentes React. Proporciona una forma limpia y reutilizable de manejar la recuperación asincrónica de datos, haciendo que sus componentes sean más concisos y fáciles de mantener.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Uso
 
-## Learn More
+* Importación:
+Importe el hook useDatabaseList en su componente React:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+import React, { useState, useEffect } from 'react';
+import { useDatabaseList } from '../../services/database.js'; 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* Llamada al Hook:
+Invoque el hook con la URL de la base de datos como argumento:
 
-### Code Splitting
+function MyComponent() {
+  const { business, loading, error } = useDatabaseList('https://your-database-api.com/data');
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  
+  if (loading) {
+    return < div donde muestra un mensaje para que el usuario sepa que esta cargando >;
+  }
 
-### Analyzing the Bundle Size
+  if (error) {
+    return < div donde muestra un mensaje para que el usuario sepa que hubo un error >;
+  }
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+* es un ejemplo de como se podria devolver un componente con toda la lista de la base de datos
 
-### Making a Progressive Web App
+  return (
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+    <ul>
+      {business.map((item) => (
+        <li key={item.id}>{item.name}</li>
+      ))}
+    </ul>
+  );
+}
 
-### Advanced Configuration
+## Valores Devueltos
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### El hook useDatabaseList devuelve tres valores:
 
-### Deployment
+- business:
+ Una matriz que contiene los datos obtenidos de la base de datos.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- loading:
+ Un booleano que indica si los datos aún se están obteniendo (inicialmente true).
 
-### `npm run build` fails to minify
+- error:
+ Un objeto de error si se produjo un error durante la obtención de datos (inicialmente null).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

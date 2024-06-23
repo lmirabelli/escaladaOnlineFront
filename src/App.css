@@ -1,38 +1,28 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Nova+Round&family=Protest+Strike&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+  --font-default: "Raleway", sans-serif;
+  --font-title: "Protest Strike", sans-serif;
+  --font-third: "Nova Round", system-ui;
+
+  --color-1: #620D0D;
+  --color-2: #A20D0D;
+  --color-3: #009212;
+  --color-pure-white: #fff;
+  --color-white-glass: #ffffff35;
+  --color-white: #fcfcf7dd;
+  --color-black: #25282a;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-default);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body{
+  background-image: url('https://i.ibb.co/41FNsQL/Hexagon.png');
+  background-attachment: fixed;
+  background-size: cover;
 }

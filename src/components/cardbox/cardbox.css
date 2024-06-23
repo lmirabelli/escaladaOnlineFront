@@ -1,0 +1,43 @@
+.cardbox{
+    width: 96%;
+    padding: 12px 24px;
+    margin: 84px auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background: #ffffff35;
+    border-radius: 24px;
+    backdrop-filter: blur(4px);
+    box-shadow: inset 0 0 12px 0px var(--color-white), 0 0 12px 4px #000;
+    h2{
+        width: 100%;
+        margin: 24px 0;
+        text-align: center;
+        font-family: var(--font-title);
+        letter-spacing: 2px;
+        color: var(--color-pure-white);
+        text-shadow: 0 0 12px #000;
+    }
+    .btn{
+        line-height: 24px;
+        height: 28px;
+        background: var(--color-pure-white);
+        padding: 0 10px;
+        margin: 8px 12px;
+        border: 2px solid var(--color-1);
+        border-radius: 6px;
+        box-shadow: 0 0 6px 1px #000000aa;
+        transform: skewX(-6deg) skewY(1deg);
+        text-decoration: none;
+        text-transform: capitalize;
+        font-weight: bold;
+        color: var(--color-1);
+        transition: transform 500ms, color 500ms, background 500ms, box-shadow 500ms;
+        &:hover{
+            transform: skewY(-4deg) scale(0.95);
+            color: var(--color-pure-white);
+            background: var(--color-1);
+            box-shadow: 0 0 6px 1px var(--color-white);
+        }
+    }
+}
