@@ -11,10 +11,10 @@ const Card = ({ _id,name, days, hours, adress, adressNumber, logo, instagram, fa
     }
     
     
-    const instagramAnchor = instagram === "" ? '' : <a href={instagram} target='_blank'><img src="https://i.ibb.co/QXynQ0J/instagram.webp" /></a>
-    const facebookAnchor = facebook === "" ? '' : <a href={facebook} target='_blank'><img src="https://i.ibb.co/rGq6Dxp/512px-2021-Facebook-icon-svg.png" /></a>
-    const tiktokAnchor = tiktok === "" ? '' : <a href={tiktok} target='_blank'><img src="https://i.ibb.co/hZ4MH92/tiktok.png" /></a>
-    const webAnchor = web === "" ? '' : <a href={web} target='_blank'><img src="https://i.ibb.co/HVDH3fs/web.png" /></a>
+    const instagramAnchor = instagram === "" ? '' : <a href={instagram} target='_blank'><img src="https://i.ibb.co/QXynQ0J/instagram.webp" alt="instagram" /><p>Instagram</p></a>
+    const facebookAnchor = facebook === "" ? '' : <a href={facebook} target='_blank'><img src="https://i.ibb.co/rGq6Dxp/512px-2021-Facebook-icon-svg.png" alt="facebook" /><p>Facebook</p></a>
+    const tiktokAnchor = tiktok === "" ? '' : <a href={tiktok} target='_blank'><img src="https://i.ibb.co/hZ4MH92/tiktok.png" alt="tiktok" /><p>Tiktok</p></a>
+    const webAnchor = web === "" ? '' : <a href={web} target='_blank'><img src="https://i.ibb.co/HVDH3fs/web.png" alt="web" /><p>Web</p></a>
 
 
     if (!_id) {
@@ -29,7 +29,7 @@ const Card = ({ _id,name, days, hours, adress, adressNumber, logo, instagram, fa
     return (
         <div className="card">
             <h3>{name}</h3>
-            <img src={logo}></img>
+            <img src={logo} alt={name}></img>
             <h5>{category}</h5>
             <div className='daysBox'>
                 {weekDays.map(day => <div key={day.name} className={days.length === 0 ? 'unknownBox' : days.find(d => d === day.name) ? 'trueBox' : 'falseBox'}>{day.biSyntax}</div>)}

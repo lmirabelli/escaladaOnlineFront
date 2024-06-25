@@ -95,7 +95,15 @@
             a{
                 display: flex;
                 justify-content: center;
+                flex-wrap: wrap;
                 width: 100%;
+                text-decoration: none;
+                p{
+                    text-align: center;
+                    width: 100%;
+                    font-size: 8px;
+                    color: var(--color-black);
+                }
                 img{
                     width: 50%;
                 }
@@ -103,6 +111,7 @@
         }
     }
     .buttonDetails{
+        margin-top: 16px;
         padding: 6px 8px;
         border-radius: 6px;
         text-decoration: none;
